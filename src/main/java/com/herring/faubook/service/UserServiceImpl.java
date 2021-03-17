@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
         this.dao = dao;
     }
 
-
     @Override
     public List<UserEntity> findAllUsers() {
         return dao.findAllUsers();

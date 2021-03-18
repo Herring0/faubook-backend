@@ -41,4 +41,14 @@ public class UserServiceImpl implements UserService {
     public UserEntity findById(long id) {
         return dao.findById(id);
     }
+
+    @Override
+    public void saveUser(UserEntity user) {
+        dao.saveUser(user);
+    }
+
+    @Override
+    public void updateUser(UserEntity user) {
+        dao.updateUser(user);
+    }
 }

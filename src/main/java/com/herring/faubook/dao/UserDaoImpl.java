@@ -34,4 +34,14 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         return getSession().get(UserEntity.class, id);
     }
 
+    @Override
+    public void saveUser(UserEntity user) {
+        getSession().save(user);
+    }
+
+    @Override
+    public void updateUser(UserEntity user) {
+        getSession().update(user);
+    }
+
 }

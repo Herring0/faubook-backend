@@ -15,4 +15,8 @@ public interface UserDao {
     UserEntity findByLogin(String login);
 
     UserEntity findById(long id);
+
+    void saveUser(UserEntity user);
+
+    void updateUser(UserEntity user);
 }

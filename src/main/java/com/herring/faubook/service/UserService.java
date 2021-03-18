@@ -14,4 +14,8 @@ public interface UserService {
     UserEntity findByLogin(String login);
 
     UserEntity findById(long id);
+
+    void saveUser(UserEntity user);
+
+    void updateUser(UserEntity user);
 }

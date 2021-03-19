@@ -11,7 +11,7 @@ public class RoleEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "name", length = 45, nullable = false)
+    @Column(name = "name", length = 45, nullable = false, unique = true)
     private String name;
 
     public RoleEntity() {

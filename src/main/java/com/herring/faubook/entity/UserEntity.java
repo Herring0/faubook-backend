@@ -1,5 +1,6 @@
 package com.herring.faubook.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.herring.faubook.entity.enums.Gender;
 import org.hibernate.validator.constraints.Email;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class UserEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "name", length = 100, nullable = false)
@@ -23,14 +24,14 @@ public class UserEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(name = "login", length = 15, unique=true, nullable = false)
+    @Column(name = "login", length = 15, unique = true, nullable = false)
     private String login;
 
     @Column(name = "password", length = 20, nullable = false)
     private String password;
 
-    @Column(name = "email", length = 60, unique=true, nullable = false)
-    @Email(message="Please provide a valid email address")
+    @Column(name = "email", length = 60, unique = true, nullable = false)
+    @Email(message = "Please provide a valid email address")
     private String email;
 
     @Column(name = "registration_datetime", nullable = false)
@@ -40,10 +41,10 @@ public class UserEntity implements Serializable {
     @Column(name = "active", nullable = false)
     private boolean active;
 
-    @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    @JoinTable(name="user_roles",
-            joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
-            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<RoleEntity> roles;
 

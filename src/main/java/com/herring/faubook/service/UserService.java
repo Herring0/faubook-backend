@@ -5,6 +5,7 @@ import com.herring.faubook.entity.UserEntity;
 import java.util.List;
 
 public interface UserService {
+
     List<UserEntity> findAllUsers();
 
     void deleteUserByLogin(String login);

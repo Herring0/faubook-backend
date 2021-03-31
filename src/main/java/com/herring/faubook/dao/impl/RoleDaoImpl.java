@@ -1,5 +1,7 @@
-package com.herring.faubook.dao;
+package com.herring.faubook.dao.impl;
 
+import com.herring.faubook.dao.AbstractDao;
+import com.herring.faubook.dao.RoleDao;
 import com.herring.faubook.entity.RoleEntity;
 import org.springframework.stereotype.Repository;
 

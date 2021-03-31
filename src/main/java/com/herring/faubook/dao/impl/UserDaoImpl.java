@@ -1,5 +1,9 @@
-package com.herring.faubook.dao;
+package com.herring.faubook.dao.impl;
+import com.herring.faubook.dao.AbstractDao;
+import com.herring.faubook.dao.UserDao;
+import com.herring.faubook.entity.AuthorEntity;
 import com.herring.faubook.entity.UserEntity;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,7 +30,12 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
     @Override
     public UserEntity findByLogin(String login){
-        return getSession().get(UserEntity.class, login);
+        Query query = getSession().
+                createQuery("from UserEntity where login=:login");
+        query.setParameter("login", login);
+        UserEntity user = (UserEntity) query.getSingleResult();
+        return user;
+//        return getSession().get(UserEntity.class, login);
     }
 
     @Override
